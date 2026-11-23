@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Seat to Study | Campus Library Guide</title>
+<style>
+:root{--ink:#18152b;--muted:#716d83;--line:#e9e5f0;--paper:#f8f6fc;--white:#fff;--purple:#6941d9;--pink:#ff5da2;--lilac:#f0eaff;--dark:#20123f}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.45}
+header{background:#ffffffdf;backdrop-filter:blur(14px);border-bottom:1px solid #ece8f3;position:sticky;top:0;z-index:5}
+.nav{max-width:1160px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.brand{font-weight:850;font-size:1.08rem;letter-spacing:-.04em}.brand span{color:var(--purple)}
+nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:650}nav a:hover{color:var(--purple)}
+main{max-width:1160px;margin:auto;padding:28px 22px 70px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#28134d 0%,#5a32b8 55%,#a64ed2 100%);color:white;border-radius:30px;padding:clamp(30px,6vw,68px);display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center;box-shadow:0 24px 60px #6037a326}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:#ff76bd40;filter:blur(30px);right:-100px;top:-150px;pointer-events:none}
+.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:800;color:#e5d7ff}
+h1{font-size:clamp(2.6rem,6vw,5rem);line-height:.99;letter-spacing:-.065em;margin:15px 0 18px;max-width:700px}
+.hero p{color:#eee6ff;max-width:560px;font-size:1.02rem}.hero-art{position:relative;z-index:1;border:1px solid #ffffff40;border-radius:24px;padding:25px;background:#ffffff12;backdrop-filter:blur(10px)}
+.hero-art .big{font-size:clamp(2.5rem,5vw,4rem);font-weight:850;line-height:1.02;letter-spacing:-.06em}.hero-art p{font-size:.9rem}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-block;border:0;border-radius:999px;padding:13px 19px;font-weight:800;text-decoration:none;cursor:pointer;background:white;color:#4d2a9e}.btn.secondary{background:#ffffff18;color:white;border:1px solid #ffffff65}
+section{margin-top:48px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:18px}
+h2{font-size:clamp(1.65rem,3vw,2.35rem);letter-spacing:-.05em;margin:0 0 5px}.section-head p,.sub{margin:0;color:var(--muted)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+input,select{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:white;color:var(--ink);box-shadow:0 3px 12px #26164d06}
+input{flex:1;min-width:220px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{background:white;border:1px solid #eae5f2;border-radius:22px;padding:21px;display:flex;flex-direction:column;gap:10px;box-shadow:0 8px 22px #28134d08;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 32px #28134d12}
+.card-top{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.floor{font-size:.74rem;font-weight:800;color:#5c36b3;background:var(--lilac);padding:6px 10px;border-radius:999px;white-space:nowrap}
+.card h3{margin:0;font-size:1.13rem;letter-spacing:-.025em}.card p{margin:0;color:var(--muted);font-size:.9rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}.tag{font-size:.73rem;border:1px solid #e8e3f0;background:#fbfaff;padding:5px 8px;border-radius:999px;color:#625a76}
+.card button{margin-top:auto;align-self:start;border:0;background:#f0eaff;color:#5c36b3;border-radius:11px;padding:10px 13px;font-weight:800;cursor:pointer}.card button:hover{background:#e5d9ff}
+.note{background:#fff6df;border:1px solid #f3e4b6;padding:16px 18px;border-radius:16px;color:#68521c}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:white;border:1px solid #eae5f2;border-radius:22px;padding:24px;box-shadow:0 8px 22px #28134d08}
+.panel h3{margin:0 0 8px}.panel p{margin:0;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{padding:20px;background:white;border:1px solid #eae5f2;border-radius:18px}.step b{display:block;margin-bottom:6px;color:#5531a5}
+footer{border-top:1px solid var(--line);padding:24px 22px;color:var(--muted);text-align:center;font-size:.85rem}
+.modal{position:fixed;inset:0;background:#1a1038b8;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal.open{display:flex}.dialog{background:white;border-radius:22px;padding:26px;max-width:480px;width:100%;box-shadow:0 25px 70px #140a2d40}.dialog h3{margin-top:0}.dialog button{border:0;background:var(--purple);color:white;padding:11px 16px;border-radius:11px;font-weight:800;cursor:pointer}
+.small{font-size:.82rem;color:var(--muted)}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+@media(max-width:540px){.cards{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}nav{gap:12px}.hero{border-radius:22px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">A Seat <span>to Study</span></div><nav><a href="#spaces">Study spaces</a><a href="#choose">Choose a space</a><a href="#rooms">Discussion rooms</a><a href="#proposals">More study spaces</a><a href="#about">Library guide</a></nav></div></header>
+<main>
+<section class="hero" style="margin-top:0">
+<div><div class="eyebrow">Campus study-space guide</div><h1>Find a place that fits how you study.</h1><p>Find a quiet corner, a group-friendly zone, or a study spot for your next gap.</p><div class="actions"><a class="btn" href="#spaces">Explore spaces</a><a class="btn secondary" href="#rooms">Discussion-room info</a></div></div>
+<div class="hero-art"><div class="eyebrow">Quick guide</div><div class="big">Quiet<br>or group?</div><p>Central Library is for quiet study. The basement allows solo work, group discussion, and practicals.</p></div>
+</section>
+
+<section id="spaces">
+<div class="section-head"><div><h2>Explore study spaces</h2><p>Filter by vibe or facilities. Find your next study spot.</p></div></div>
+<div class="filters"><input id="search" type="search" placeholder="Search by floor, area, or facility…"><select id="mode"><option value="">All study styles</option><option value="quiet">Quiet study</option><option value="flex">Flexible / discussion</option><option value="lab">Lab-style</option></select><select id="facility"><option value="">Any facility</option><option value="charging">Charging pods</option><option value="books">Bookshelves</option><option value="tables">Tables & seats</option><option value="reception">Reception / washroom</option></select></div>
+<div class="cards" id="cards">
+<article class="card" data-search="central library ground floor study hall reception washroom charging pods tables seats quiet" data-mode="quiet" data-facility="charging tables reception"><div class="card-top"><span class="floor">Ground floor</span><span class="small">Central Library</span></div><h3>Large study hall</h3><p>Big quiet hall, tables, charging pods, reception, and washrooms.</p><div class="tags"><span class="tag">Quiet study</span><span class="tag">Charging pods</span><span class="tag">Reception</span><span class="tag">Washroom</span></div><button onclick="details('Ground floor — Large study hall','Quiet study area with tables, seats, and charging pods. Reception and washrooms are on this floor.')">View details</button></article>
+<article class="card" data-search="central library second floor lab type study charging pods tables seats quiet" data-mode="quiet lab" data-facility="charging tables"><div class="card-top"><span class="floor">Second floor</span><span class="small">Central Library</span></div><h3>Lab-style study area</h3><p>Lab-style setup with tables, seats, and charging pods.</p><div class="tags"><span class="tag">Quiet study</span><span class="tag">Lab-style</span><span class="tag">Charging pods</span></div><button onclick="details('Second floor — Lab-style study area','Lab-style quiet study space with tables, seats, and charging pods.')">View details</button></article>
+<article class="card" data-search="central library fourth floor bookshelves study space discussion rooms quiet chairs less comfortable" data-mode="quiet" data-facility="books tables"><div class="card-top"><span class="floor">Fourth floor</span><span class="small">Central Library</span></div><h3>Bookshelves & study space</h3><p>Bookshelves, quiet study, and bookable discussion rooms.</p><div class="tags"><span class="tag">Quiet study</span><span class="tag">Bookshelves</span><span class="tag">Discussion rooms</span></div><button onclick="details('Fourth floor — Bookshelves & study space','Quiet study space with bookshelves. Discussion rooms require an appointment and are limited to one hour. Seating is reported as less comfortable than on the ground and second floors.')">View details</button></article>
+<article class="card" data-search="central library fifth floor bookshelves study space discussion rooms quiet chairs less comfortable" data-mode="quiet" data-facility="books tables"><div class="card-top"><span class="floor">Fifth floor</span><span class="small">Central Library</span></div><h3>Bookshelves & study space</h3><p>Bookshelves, quiet study, and bookable discussion rooms.</p><div class="tags"><span class="tag">Quiet study</span><span class="tag">Bookshelves</span><span class="tag">Discussion rooms</span></div><button onclick="details('Fifth floor — Bookshelves & study space','Quiet study space with bookshelves. Discussion rooms require an appointment and are limited to one hour. Seating is reported as less comfortable than on the ground and second floors.')">View details</button></article>
+<article class="card" data-search="basement flexible solo group discussion practicals charging pods tables chairs" data-mode="flex" data-facility="charging tables"><div class="card-top"><span class="floor">Basement</span><span class="small">Library</span></div><h3>Flexible study area</h3><p>Solo study, group work, and practicals—with charging pods.</p><div class="tags"><span class="tag">Group discussion</span><span class="tag">Practicals</span><span class="tag">Charging pods</span></div><button onclick="details('Basement — Flexible study area','A large area where solo study, group discussion, and practical work are allowed. Tables, chairs, and charging pods are available.')">View details</button></article>
+<article class="card" data-search="central library discussion room appointment one hour group discussion" data-mode="flex" data-facility="tables"><div class="card-top"><span class="floor">Fourth & fifth floors</span><span class="small">Central Library</span></div><h3>Bookable discussion rooms</h3><p>For group discussion. Appointment required; max one hour.</p><div class="tags"><span class="tag">Group discussion</span><span class="tag">Appointment required</span><span class="tag">1-hour limit</span></div><button onclick="details('Discussion rooms','Discussion rooms are designed for student discussion. An appointment is required; use is limited to one hour. This prototype does not make or confirm bookings.')">View details</button></article>
+<article class="card proposed" data-search="proposed exam midterm extra study spaces overflow quiet seats" data-mode="quiet" data-facility="tables"><div class="card-top"><span class="floor" style="background:#fff0d8;color:#805a18">Proposed</span><span class="small">Exam periods</span></div><h3>Exam-time extra study zone</h3><p>Extra designated study spots during midterms and exam rush.</p><div class="tags"><span class="tag">Midterms / exams</span><span class="tag">Extra capacity</span><span class="tag">Quiet study</span></div><button onclick="details('Proposed — Exam-time extra study zone','A suggested temporary study area for high-demand exam periods. This is an idea for consideration, not a confirmed existing facility.')">View proposal</button></article>
+<article class="card proposed" data-search="proposed between classes dedicated study room gap lectures quiet" data-mode="quiet" data-facility="tables"><div class="card-top"><span class="floor" style="background:#fff0d8;color:#805a18">Proposed</span><span class="small">Between classes</span></div><h3>Dedicated between-class study room</h3><p>A nearby dedicated study room for the gap between lectures.</p><div class="tags"><span class="tag">Short study breaks</span><span class="tag">Near teaching blocks</span><span class="tag">Not a classroom</span></div><button onclick="details('Proposed — Between-class study room','A dedicated study room near teaching blocks for students between lectures. It is distinct from an ordinary classroom and is a proposed solution, not a confirmed existing space.')">View proposal</button></article>
+</div>
+<p id="empty" class="small" style="display:none">No matching spaces. Try changing your filters.</p>
+</section>
+
+<section id="proposals">
+<div class="section-head"><div><h2>More study space ideas</h2><p>These are proposed additions based on the challenges students described.</p></div></div>
+<div class="two">
+<div class="panel"><h3>Extra capacity during midterms</h3><p>Consider opening or arranging additional designated study space during midterms and exam periods, when demand is higher. This would be separate from the regular library areas.</p></div>
+<div class="panel"><h3>Study space between classes</h3><p>Consider a dedicated study room near teaching blocks for students with gaps between lectures. It would be a study room—not an ordinary empty classroom—and could reduce time spent walking to the Central Library.</p></div>
+</div>
+<p class="small" style="margin-top:12px">Both ideas are proposals for discussion, not claims that these spaces already exist.</p>
+</section>
+
+<section id="choose">
+<div class="section-head"><div><h2>Choose by study need</h2><p>A quick guide based on the library arrangements described by students.</p></div></div>
+<div class="two">
+<div class="panel"><h3>Need quiet, focused study?</h3><p>Choose a Central Library study area. The library is expected to remain quiet, so it is best for individual study.</p></div>
+<div class="panel"><h3>Need to talk or work together?</h3><p>Use the basement for group discussion or practicals. For a discussion room in the Central Library, an appointment is required and the time limit is one hour.</p></div>
+</div>
+<div class="note" style="margin-top:14px"><b>Between classes:</b> No nearby in-between study spot means a trip to the Central Library can eat into your break.</div>
+</section>
+
+<section id="rooms">
+<div class="section-head"><div><h2>Discussion-room rule</h2><p>Keep the appointment limit visible before students plan a group session.</p></div></div>
+<div class="steps"><div class="step"><b>1. Find a room</b><span class="small">Discussion rooms are on the fourth and fifth floors of the Central Library.</span></div><div class="step"><b>2. Book an appointment</b><span class="small">An appointment is required. This prototype provides information only; it does not reserve a room.</span></div><div class="step"><b>3. Plan for one hour</b><span class="small">Each appointment is limited to one hour or less.</span></div></div>
+</section>
+
+<section id="about">
+<div class="section-head"><div><h2>Library guide & known limitations</h2><p>Information reflects the student-provided description of the library.</p></div></div>
+<div class="panel"><p><b>Level naming:</b> The basement is Level 1; the first floor is Level 2; the second floor is Level 3. The website keeps the familiar floor names in its space cards to avoid confusion while the remaining level labels are confirmed.<p style="margin-top:10px"><b>Entry and exit:</b> Turnstiles record entry and exit at the Central Library and the investment library.</p><p style="margin-top:10px"><b>Facilities:</b> Charging pods, tables, and seats are available across the described study floors. The ground floor also has reception and washrooms.</p><p style="margin-top:10px"><b>Comfort note:</b> Seating on the fourth and fifth floors was described as less comfortable than seating on the ground and second floors.</p><p style="margin-top:10px"><b>Not shown:</b> Live occupancy, seat reservations, walking directions, opening hours, and investment-library floor details were not provided, so this prototype does not claim or simulate them.</p></div>
+</section>
+</main>
+<footer>A Seat to Study · Student study-space guide · Prototype information only</footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="dialog"><h3 id="modalTitle"></h3><p id="modalText"></p><p class="small">Information only — no booking or live availability is connected.</p><button onclick="closeDetails()">Close</button></div></div>
+<script>
+const cards=[...document.querySelectorAll('.card')], search=document.getElementById('search'), mode=document.getElementById('mode'), facility=document.getElementById('facility');
+function filterCards(){let q=search.value.toLowerCase(),m=mode.value,f=facility.value,n=0;cards.forEach(c=>{let ok=c.dataset.search.includes(q)&&(!m||c.dataset.mode.split(' ').includes(m))&&(!f||c.dataset.facility.split(' ').includes(f));c.style.display=ok?'flex':'none';if(ok)n++});document.getElementById('empty').style.display=n?'none':'block'}
+[search,mode,facility].forEach(el=>el.addEventListener('input',filterCards));
+function details(title,text){document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent=text;document.getElementById('modal').classList.add('open')}
+function closeDetails(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeDetails()});
+</script>
+</body>
+</html>
